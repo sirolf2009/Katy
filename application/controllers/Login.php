@@ -3,7 +3,7 @@ class Login extends CI_Controller {
 
 	public function Login() {
             $username = $this->input->get("username");
-            $password = $this->input->get("username");
+            $password = $this->input->get("password");
             $server = mysql_connect("localhost", "mysql_user", "mysql_password");
             if (!$server) {
                 die("Could not connect to: ".mysql_error());
