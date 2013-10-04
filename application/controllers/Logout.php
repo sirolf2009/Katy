@@ -1,12 +1,18 @@
 <?php
 class Logout extends CI_Controller {
+    
+        function __construct() {
+            parent::__construct();
+            $this->Logout();
+        } 
 
 	public function Logout() {
-            if(!$this->input->get("logged in")) {
-                die("You are not signed in");
+            $sessionData = $this->session->userdata("userData");
+            if(!$sessionData["loggedIn"]) {
+                die("You are not logged in.");
             } else {
-                $this->input->post("logged in", false);
-                $this->load->view("index");
+                $this->session->unset_userdata("userData");
+                echo("Logout succesful");
             }
         }
 }
