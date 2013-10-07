@@ -18,7 +18,7 @@ class Register extends CI_Controller {
         if(!$result) {
             die("Query failure: ".mysqli_error($server));
         }
-
+        mysqli_free_result($result);
     }
 
 }
