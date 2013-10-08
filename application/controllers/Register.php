@@ -1,10 +1,33 @@
 <?php
 class Register extends CI_Controller {
 
+    function __construct() {
+        parent::__construct();
+    }
+
+    function index() {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('registerView');
+        } else {
+
+            $this->Register();
+            $this->load->view("loginView");
+            echo("Register succesful!");
+        }
+    }
+
     Public function Register(){
-        $username = "test5" ;//$this->input->get("username");
-        $password = "test3" ;//$this->input->get("password");
-        $email = "test3@gmail.com";//$this->input->get("email");
+        $username = $this->input->get("username");
+        $password = $this->input->get("password");
+        $email = $this->input->get("email");
+
 
         $server = mysqli_connect("localhost", "root", "", "katy");
         if (!$server) {
