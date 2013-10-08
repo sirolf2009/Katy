@@ -9,7 +9,9 @@
 	<body>
             
             <div class ="dwelkom">
-                         
+                <form action="index.php/register" method="get">
+				<input type="submit" value="registreren" class="dafmelden">
+				</form>
             </div>
             
             <?php echo validation_errors(); ?>
@@ -21,14 +23,14 @@
                         <P>Username:</p>
                     </div>
                     <!--<TEXTAREA style="position: absolute; left: 360px; top: 110px;" ROWS=2 COLS=50 class ="invoervak1"></TEXTAREA>-->
-                    <input type="text" name="username" value="" size="50" />
+                    <input type="text" name="username" value="" class="invoervak2" style="position: absolute; left: 360px; top: 110px;" ROWS=2 COLS=50 class ="invoervak1" />
                 </div>
                 <div class ="texterea2">
                     <div class ="password1">
                         <P>Password:</p>
                     </div>
                     <!--<TEXTAREA  style="position: absolute; left: 360px; top: 173px;" ROWS=2 COLS=50 class ="invoervak2"></TEXTAREA>-->
-                    <input type="password" name="password" value="" size="50" />
+                    <input type="password" name="password" value=""  style="position: absolute; left: 360px; top: 173px;" ROWS=2 COLS=50 class ="invoervak2"/>
                 </div>
                 <div class="daanmelden">
                     <input type="submit" value="Submit" />

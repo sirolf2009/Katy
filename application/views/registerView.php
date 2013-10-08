@@ -6,7 +6,9 @@
 	
 	<body>
 		<div class="dwelkom">
-		
+			<form action="login" method="get">
+			<input type="submit" value="registreren" class="dafmelden">
+			</form>
 		</div>
 		
 		<?php echo validation_errors(); ?>
@@ -18,21 +20,21 @@
 					<P>New Username:</p>
 				</div>
 				<!--<TEXTAREA style="position: absolute; left: 360px; top: 110px;" ROWS=2 COLS=50 class ="invoervak1"></TEXTAREA>-->
-				<input type="text" name="username" value="" size="50"/>
+				<input type="text" name="username" value="" style="position: absolute; left: 360px; top: 110px;" ROWS=2 COLS=50 class ="invoervak1"/>
 			</div>
 			<div class="texterea2">
 				<div class="password1">
 					<P>New Password:</p>
 				</div>
 				<!--<TEXTAREA style="position: absolute; left: 360px; top: 175px;" ROWS=2 COLS=50 class ="invoervak2"></TEXTAREA>-->
-				<input type="password" name="password" value="" size="50"/>
+				<input type="password" name="password" value="" style="position: absolute; left: 360px; top: 175px;" ROWS=2 COLS=50 class ="invoervak2"/>
 			</div>
-			<div class="texterea3">
-				<div class="e-mail1">
+			<div class="texterea2">
+				<div class="password1">
 					<P>E-mail:</p>
 				</div>
 				<!--<TEXTAREA style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak3"></TEXTAREA>-->
-				<input type="text" name="email" value="" size="50"/>
+				<input type="text" name="email" value="" style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak2"/>
 			</div>
 			<div class="dregistreren">
 				<input type="submit" value="Submit"/>
