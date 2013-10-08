@@ -2,7 +2,7 @@
 	
      <head>
         <title>redelijk</title>
-        <link rel="stylesheet"  type="text/css" href="http://localhost/CSS_for_e-learning.css" />
+        <link rel="stylesheet"  type="text/css" href="http://localhost/rsc/CSS/CSS_for_e-learning.css" />
             
          
      </head>

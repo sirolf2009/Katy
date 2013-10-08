@@ -2,7 +2,7 @@
 	
      <head>
         <title>redelijk</title>
-        <link rel="stylesheet"  type="text/css" href="http://localhost/CSS_for_e-learning.css" />
+        <link rel="stylesheet"  type="text/css" href="http://localhost/rsc/CSS/CSS_for_e-learning.css" />
             
          
      </head>
@@ -28,7 +28,7 @@
                         <P>Password:</p>
                     </div>
                     <!--<TEXTAREA  style="position: absolute; left: 360px; top: 173px;" ROWS=2 COLS=50 class ="invoervak2"></TEXTAREA>-->
-                    <input type="text" name="password" value="" size="50" />
+                    <input type="password" name="password" value="" size="50" />
                 </div>
                 <div class="daanmelden">
                     <input type="submit" value="Submit" />
@@ -36,7 +36,7 @@
              
             </div>
             <div style="position: absolute; left: 680px; top: 83px;" class ="data">
-                <img src="http://localhost/data_peeps.jpg" width="680" height="500">
+                <img src="http://localhost/rsc/images/data_peeps.jpg" width="680" height="500">
             </div>
             </form>
 	</body>
