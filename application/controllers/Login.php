@@ -3,12 +3,26 @@ class Login extends CI_Controller {
     
         function __construct() {
             parent::__construct();
-            $this->Login();
         } 
+        
+        function index() {
+                $this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+                    $this->load->view('loginView');
+		} else {
+                    $this->Login();
+                    $this->load->view("logoutView");
+		}
+	}
     
 	public function Login() {
-            $username = "test";//$this->input->get("username");
-            $password = "test";//$this->input->get("password");
+            $username = $this->input->post("username");
+            $password = $this->input->post("password");
             $sessionData = $this->session->userdata("userData");
             if($sessionData["loggedIn"]) {
                 die("You are already logged in.");
@@ -19,13 +33,11 @@ class Login extends CI_Controller {
             }
             $result = mysqli_query($server, "SELECT * FROM account WHERE Username='".$username."' AND Password='".$password."'");
             if($result->num_rows == 0) {
-                die("Wrong password or username given". mysqli_error($server));
+                die("Wrong password or username given". mysqli_error($server)." Username=".$username." Password=".$password);
             }
             
             $this->session->set_userdata("userData", array("loggedIn" => true,
                                                            "username" => $username));
-            //$this->load->view("welcome_message");
-            echo("Login succesful<br>");
             mysqli_free_result($result);
         }
 }

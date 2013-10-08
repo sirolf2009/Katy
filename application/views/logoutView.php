@@ -2,7 +2,7 @@
 	
      <head>
         <title>redelijk</title>
-        <link rel="stylesheet"  type="text/css" href="Css_for_e-learning.css" />
+        <link rel="stylesheet"  type="text/css" href="http://localhost/CSS_for_e-learning.css" />
             
          
      </head>
@@ -10,7 +10,9 @@
            <div class ="dwelkom">
              <div class ="divwelkom">
                  <div class ="dloguit">
-                    <button class="dafmelden"> <a href="htmle-learning.html">uitloggen</a></button>
+                     <?php echo form_open('logout'); ?>
+                    <input type="submit" value="uitloggen" />
+                    <!--<button class="dafmelden"> <a href="htmle-learning.html">uitloggen</a></button>-->
                   </div>                
              </div>            
            </div>
