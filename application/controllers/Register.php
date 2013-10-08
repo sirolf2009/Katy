@@ -24,9 +24,9 @@ class Register extends CI_Controller {
     }
 
     Public function Register(){
-        $username = $this->input->get("username");
-        $password = $this->input->get("password");
-        $email = $this->input->get("email");
+        $username = $this->input->post("username");
+        $password = $this->input->post("password");
+        $email = $this->input->post("email");
 
 
         $server = mysqli_connect("localhost", "root", "", "katy");
@@ -37,11 +37,11 @@ class Register extends CI_Controller {
         if($result->num_rows != 0) {
             die("This user is already registered");
         }
+        mysqli_free_result($result);
         $result = mysqli_query($server, ' INSERT INTO account (Username, Password, Email) VALUES("'.$username.'", "'.$password.'", "'.$email.'")');
         if(!$result) {
             die("Query failure: ".mysqli_error($server));
         }
-        mysqli_free_result($result);
     }
 
 }
