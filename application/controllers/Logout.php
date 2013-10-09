@@ -16,8 +16,7 @@ class Logout extends CI_Controller {
                 $this->load->view('loginView');
             } else {
                 $this->session->unset_userdata("userData");
-                echo("Logout succesful");
-                //$this->load->view('home'); TODO homepage
+                $this->load->view('login');
             }
         }
 }

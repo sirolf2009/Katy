@@ -27,6 +27,8 @@ class Login extends CI_Controller {
             if($sessionData["loggedIn"]) {
                 die("You are already logged in.");
             }
+            $this->load->model('Account', "account");
+            $this->account->login($username, $password);
             $server = mysqli_connect("localhost", "root", "", "katy");
             if (!$server) {
                 die("Could not connect to: ".mysqli_error($server));

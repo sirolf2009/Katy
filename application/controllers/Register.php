@@ -16,17 +16,18 @@ class Register extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('registerView');
         } else {
-
             $this->Register();
             $this->load->view("loginView");
-            echo("Register succesful!");
         }
     }
 
-    Public function Register(){
+    Public function Register() {
         $username = $this->input->post("username");
         $password = sha1($this->input->post("password").'extra');
         $email = $this->input->post("email");
+        
+        $this->load->model('Account', "account");
+        $this->account->register($username, $password, $email);
 
 
         $server = mysqli_connect("localhost", "root", "", "katy");
