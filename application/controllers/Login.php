@@ -22,7 +22,7 @@ class Login extends CI_Controller {
     
 	public function Login() {
             $username = $this->input->post("username");
-            $password = $this->input->post("password");
+            $password = sha1($this->input->post("password")."extra");
             $sessionData = $this->session->userdata("userData");
             if($sessionData["loggedIn"]) {
                 die("You are already logged in.");
@@ -33,7 +33,7 @@ class Login extends CI_Controller {
             }
             $result = mysqli_query($server, "SELECT * FROM account WHERE Username='".$username."' AND Password='".$password."'");
             if($result->num_rows == 0) {
-                die("Wrong password or username given". mysqli_error($server)." Username=".$username." Password=".$password);
+                die("Wrong password or username given". mysqli_error($server)." Username=".$username."");
             }
             
             $this->session->set_userdata("userData", array("loggedIn" => true,
