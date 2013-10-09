@@ -6,9 +6,7 @@
 	
 	<body>
 		<div class="dwelkom">
-			<form action="login" method="get">
-			<input type="submit" value="registreren" class="dafmelden">
-			</form>
+                    <input type="submit" value="Log in" class="dafmelden" onclick="location.href = 'http://localhost/index.php/login'">
 		</div>
 		
 		<?php echo validation_errors(); ?>
