@@ -9,7 +9,9 @@
 	<body>
             
             <div class ="dwelkom">
-                <input type="submit" value="Register" class="dafmelden" onclick="location.href = 'http://localhost/index.php/register'">
+                <form action="index.php/register" method="get">
+				<input type="submit" value="registreren" class="dafmelden">
+				</form>
             </div>
             
             <?php echo validation_errors(); ?>
