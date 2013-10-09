@@ -1,4 +1,0 @@
-Katy
-====
-
-A school project
