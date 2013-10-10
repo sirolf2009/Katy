@@ -9,7 +9,6 @@
                     <input type="submit" value="Log in" class="dafmelden" onclick="location.href = 'http://localhost/index.php/login'">
 		</div>
 		
-		<?php echo validation_errors(); ?>
 		<?php echo form_open('register'); ?>
 		
 		<div class="dlogin">
@@ -33,6 +32,7 @@
 				</div>
 				<!--<TEXTAREA style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak3"></TEXTAREA>-->
 				<input type="text" name="email" value="" style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak2"/>
+                                <?php echo validation_errors(); ?>
 			</div>
 			<div class="dregistreren">
 				<input type="submit" value="Submit"/>
