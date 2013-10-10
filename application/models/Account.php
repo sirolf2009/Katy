@@ -22,8 +22,22 @@ class Account extends CI_Model {
         }
     }
     
+    function doesUserExist($username) {
+        $this->db->select('username');
+        $this->db->from('account');
+        $this->db->where('username', $username);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if($query->num_rows() >= 1) {
+            return true;
+        } else { 
+            return false;
+        }
+    }
+    
     function register($username, $password, $email) {
-        if($this->login($username, $password) == false) {
             $data = array(
                 'Username'=>$username,
                 'Password'=>$password,
@@ -32,9 +46,6 @@ class Account extends CI_Model {
                 "Rights"=>"User"
             );
             $this->db->insert('account', $data);
-        } else {
-            die("This user already exists");
-        }
     }
     
     function getLatestUserID() {

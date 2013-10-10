@@ -29,18 +29,17 @@ class Login extends CI_Controller {
             }
             $this->load->model('Account', "account");
             $this->account->login($username, $password);
-            $server = mysqli_connect("localhost", "root", "", "katy");
-            if (!$server) {
-                die("Could not connect to: ".mysqli_error($server));
-            }
-            $result = mysqli_query($server, "SELECT * FROM account WHERE Username='".$username."' AND Password='".$password."'");
-            if($result->num_rows == 0) {
-                die("Wrong password or username given". mysqli_error($server)." Username=".$username."");
-            }
+//            $server = mysqli_connect("localhost", "root", "", "katy");
+//            if (!$server) {
+//                die("Could not connect to: ".mysqli_error($server));
+//            }
+//            $result = mysqli_query($server, "SELECT * FROM account WHERE Username='".$username."' AND Password='".$password."'");
+//            if($result->num_rows == 0) {
+//                die("Wrong password or username given". mysqli_error($server)." Username=".$username."");
+//            }
             
             $this->session->set_userdata("userData", array("loggedIn" => true,
                                                            "username" => $username));
-            mysqli_free_result($result);
         }
 }
 ?>
