@@ -32,6 +32,7 @@
 				</div>
 				<!--<TEXTAREA style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak3"></TEXTAREA>-->
 				<input type="text" name="email" value="" style="position: absolute; left: 360px; top: 240px;" ROWS=2 COLS=50 class ="invoervak2"/>
+                                <br>
                                 <?php echo validation_errors(); ?>
 			</div>
 			<div class="dregistreren">
