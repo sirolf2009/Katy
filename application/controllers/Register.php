@@ -28,21 +28,6 @@ class Register extends CI_Controller {
         
         $this->load->model('Account', "account");
         $this->account->register($username, $password, $email);
-
-
-        $server = mysqli_connect("localhost", "root", "", "katy");
-        if (!$server) {
-            die("Could not connect to: ".mysqli_error($server));
-        }
-        $result = mysqli_query($server, "SELECT * FROM account WHERE Username='".$username."'");
-        if($result->num_rows != 0) {
-            die("This user is already registered");
-        }
-        mysqli_free_result($result);
-        $result = mysqli_query($server, ' INSERT INTO account (Username, Password, Email, Rights) VALUES("'.$username.'", "'.$password.'", "'.$email.'", "User")');
-        if(!$result) {
-            die("Query failure: ".mysqli_error($server));
-        }
     }
 
 }
