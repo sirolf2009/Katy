@@ -62,5 +62,11 @@ class Account extends CI_Model {
         $this->db->limit(1);
         return $this->db->get();
     }
+    
+    function getIDFromUser($username) {
+        $query = $this->db->query("SELECT user_id FROM account WHERE Username='".$username."'");
+        $row = $query->row(); 
+        return $row->user_id;
+    }
 }
 ?>
