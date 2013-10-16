@@ -7,6 +7,7 @@ class Account extends CI_Model {
     }
     
     function login($username, $password) {
+        $password = sha1($password."extra");
         $this->db->select('username, password');
         $this->db->from('account');
         $this->db->where('username', $username);
@@ -38,6 +39,7 @@ class Account extends CI_Model {
     }
     
     function register($username, $password, $email) {
+        $password = sha1($password."extra");
             $data = array(
                 'Username'=>$username,
                 'Password'=>$password,
@@ -45,7 +47,7 @@ class Account extends CI_Model {
                 "user_id"=>$this->getLatestUserID()+1,
                 "Rights"=>"User"
             );
-            $this->db->insert('account', $data);
+        $this->db->insert('account', $data);
     }
     
     function getLatestUserID() {

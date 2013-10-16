@@ -35,12 +35,8 @@ class Register extends CI_Controller {
     }
 
     Public function Register() {
-        $username = $this->input->post("username");
-        $password = sha1($this->input->post("password").'extra');
-        $email = $this->input->post("email");
-        
         $this->load->model('Account', "account");
-        $this->account->register($username, $password, $email);
+        $this->account->register($this->input->post("username"), sha1($this->input->post("password").'extra'), $this->input->post("email"));
     }
 
 }

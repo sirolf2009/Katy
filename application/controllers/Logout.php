@@ -12,8 +12,7 @@ class Logout extends CI_Controller {
 	public function Logout() {
             $sessionData = $this->session->userdata("userData");
             if(!$sessionData["loggedIn"]) {
-                echo("You are not logged in.");
-                $this->load->view('loginView');
+                show_error("You are not logged in.");
             } else {
                 $this->session->unset_userdata("userData");
                 $this->load->view('loginView');

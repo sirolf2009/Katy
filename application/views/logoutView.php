@@ -7,15 +7,15 @@
          
      </head>
 	<body>
-           <div class ="dwelkom">
-             <div class ="divwelkom">
-                 <div class ="dloguit">
-                     <?php echo form_open('logout'); ?>
-                    <input type="submit" value="uitloggen" />
-                    <!--<button class="dafmelden"> <a href="htmle-learning.html">uitloggen</a></button>-->
-                  </div>                
-             </div>            
-           </div>
+            <?php 
+            $data['barItems'] = "1";
+            $data['destinations'] = array(
+                0 => "http://localhost/index.php/logout"
+            );
+            $data['descriptions'] = array(
+                0 => "uitloggen"
+            );$this->load->view('header', $data);
+            echo form_open('login'); ?>
  
             
             
