@@ -11,25 +11,14 @@ class Register extends CI_Controller {
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|callback_CheckUserExistence');
-        $this->form_validation->set_rules('passwordConf', 'PasswordConf', 'required|callback_ConfirmPass');
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('passwordConf', 'PasswordConf', 'required|matches[password]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('registerView');
         } else {
             $this->Register();
             $this->load->view("loginView");
-        }
-    }
-    
-    public function ConfirmPass() {
-        $password = sha1($this->input->post("password")."extra");
-        $passwordConf = sha1($this->input->post("passwordConf")."extra");
-        if($password == $passwordConf) {
-            return true;
-        } else {
-            $this->form_validation->set_message('ConfirmPass', 'De wachtwoorden moeten aan elkaar gelijk zijn');
-            return false;
         }
     }
     

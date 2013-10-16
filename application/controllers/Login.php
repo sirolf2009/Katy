@@ -25,7 +25,7 @@ class Login extends CI_Controller {
             $password = sha1($this->input->post("password")."extra");
             $sessionData = $this->session->userdata("userData");
             if($sessionData["loggedIn"]) {
-                die("You are already logged in.");
+                show_error("You are already logged in.");
             }
             $this->load->model('Account', "account");
             $this->account->login($username, $password);
