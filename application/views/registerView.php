@@ -5,11 +5,18 @@
 	</head>
 	
 	<body>
-		<div class="dwelkom">
-                    <input type="submit" value="Log in" class="dafmelden" onclick="location.href = 'http://localhost/index.php/login'">
-		</div>
-		
-		<?php echo form_open('register'); ?>
+		<?php 
+                $data['barItems'] = "2";
+                $data['destinations'] = array(
+                    0 => "http://localhost/index.php/login",
+                    1 => "http://localhost/index.php/register"
+                );
+                $data['descriptions'] = array(
+                    0 => "login",
+                    1 => "register"
+                );
+                $this->load->view('header', $data);
+                echo form_open('register'); ?>
 		
 		<div class="dlogin">
 			<div class="texterea1">
@@ -46,5 +53,6 @@
 			</div>
 		</div>
 		</form>
+                <?php $this->load->view('footer'); ?>
 	</body>
 </html>

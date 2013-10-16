@@ -94,3 +94,76 @@
     height: 30px;
     width: 125px;        
 }
+
+.logo{
+    float: left;
+    width: 72px;
+    height: 64px;
+}
+
+.topBar {
+    background-color: #83c8f9;
+    border: 2px solid;
+    border-color: #2984c3;
+    height: 75px;
+    width: 100%;
+}
+.barItem {
+    background-color: #83c8f9;
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    border-left: 2px solid;
+    border-color: #2984c3;
+    text-transform: uppercase;
+    float: left;
+    height: 65px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    line-height: 65px;
+    text-decoration: none;
+}
+.barItemFirst {
+    margin-left: 10px;
+    border-left: 2px solid;
+    
+    background-color: #83c8f9;
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    border-color: #2984c3;
+    text-transform: uppercase;
+    float: left;
+    height: 65px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    line-height: 65px;
+    text-decoration: none;
+}
+.barItemLast {
+    border-right: 2px solid;
+    
+    background-color: #83c8f9;
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    border-left: 2px solid;
+    border-color: #2984c3;
+    text-transform: uppercase;
+    float: left;
+    height: 65px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    line-height: 65px;
+    text-decoration: none;
+}
+
+.license {
+    text-align: center;
+}

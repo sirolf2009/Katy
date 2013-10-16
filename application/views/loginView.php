@@ -7,13 +7,17 @@
          
      </head>
 	<body>
-            
-            <div class ="dwelkom">
-                <input type="submit" value="Register" class="dafmelden" onclick="location.href = 'http://localhost/index.php/register'">
-            </div>
-            
-            
-            <?php echo form_open('login'); ?>
+            <?php 
+            $data['barItems'] = "2";
+            $data['destinations'] = array(
+                0 => "http://localhost/index.php/login",
+                1 => "http://localhost/index.php/register"
+            );
+            $data['descriptions'] = array(
+                0 => "login",
+                1 => "register"
+            );$this->load->view('header', $data);
+            echo form_open('login'); ?>
             
             <div class ="dlogin">
                 <div class ="texterea1">
@@ -46,5 +50,6 @@
                 <img src="http://localhost/rsc/images/data_peeps.jpg" width="680" height="500">
             </div>
             </form>
+            <?php $this->load->view('footer'); ?>
 	</body>
 </html>
