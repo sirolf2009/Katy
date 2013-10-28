@@ -1,0 +1,77 @@
+/* Created due to the OCD attacks of the old one :3 */
+
+/* Universal */
+
+.contentBig {
+    border: 1px solid black; 
+    background-color: #ceceed;
+    height: 500px;
+    width: 100%;
+    margin: 5px;
+}
+
+.panel {
+    background-color: #ceceed;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display: inline-block;
+    margin: 5px;
+}
+
+.panel2 {
+    background-color: #ceceed;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: inline-block;
+    margin: 5%;
+    width: 90%;
+}
+
+/* Editor specific */
+
+.editorResult {
+    background-color: #FFFFFF;
+    width: 40%;
+    margin: 5px;
+    margin-left: 0px;
+    float: right;
+    height: 450px;
+}
+
+.editorSource {
+    background-color: #FFFFFF;
+    width: 80%; 
+    height: 450px; 
+    margin-left: 5%;
+    float: left;
+}
+
+.formatBlue {
+    color: #0000FF;
+}
+
+.fileBrowser {
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    width: 90%;
+    margin-left: 5%;
+    height: 400px;
+}
+
+.fileBrowserItem {
+    border: 1px solid #e1e1e1;
+    width: 45%;
+}
+
+.fileBrowserItemSelected {
+    background-color: #9999ff;
+    border: 1px solid #e1e1e1;
+    width: 45%;
+}
+
+.fileBrowserItemName {
+}
+.fileBrowserItemImage {
+    width: 32px;
+    height: 32px;
+}
