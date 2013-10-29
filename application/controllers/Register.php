@@ -29,7 +29,7 @@ class Register extends CI_Controller {
         $privatekey = "6Lco_OgSAAAAALzUplkjQ1FesnGqGdv1OBkAAI5x";
         $resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
         if (!$resp->is_valid) {
-            $this->load->view('loginView', array("CAPTCHA" => false));
+            $this->form_validation->set_message('Captcha', 'De captcha is niet juist ingevuld');
             return false;
         }
         return true;
