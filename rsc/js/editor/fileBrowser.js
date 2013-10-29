@@ -7,7 +7,7 @@ function saveFile() {
     } else if (currentFile == 1) {
         localStorage.fileJS = editor.innerHTML.replace("<div>","").replace("</div>","");
     } else if (currentFile == 2) {
-        localStorage.fileCSS = editor.innerHTML;
+        localStorage.fileCSS = editor.innerHTML.replace("<div>","").replace("</div>","");
     }
 }
 
@@ -22,7 +22,6 @@ function openFile(file, shouldSave) {
     }
     document.getElementById("fileBrowserItem" + currentFile).setAttribute("class", "fileBrowserItemSelected");
     if (currentFile == 0) {
-        alert(localStorage.fileHTML);
         editor.innerHTML = localStorage.fileHTML === undefined ? "" : localStorage.fileHTML;
     } else if (currentFile == 1) {
         editor.innerHTML = localStorage.fileJS === undefined ? "" : localStorage.fileJS;
