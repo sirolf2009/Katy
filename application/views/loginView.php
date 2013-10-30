@@ -110,12 +110,6 @@
                     <input type="password" name="password" value=""  style="position: absolute; left: 360px; top: 173px;" ROWS=2 COLS=50 class ="invoervak2"/>
                                      <?php echo validation_errors(); ?>								
 		  </div>
-                <div class="invoerveld">
-                    <label class="invoer-label">Username:</label>
-                    <div class="invoer">
-                        <input type="text">
-                    </div>
-                </div>
                 <div class="daanmelden">
                     <input type="submit" value="Submit" />
                 </div>

@@ -6,16 +6,7 @@
 
     <body>
         <?php
-        $data['barItems'] = "2";
-        $data['destinations'] = array(
-            0 => "http://localhost/index.php/login",
-            1 => "http://localhost/index.php/register"
-        );
-        $data['descriptions'] = array(
-            0 => "login",
-            1 => "register"
-        );
-        $this->load->view('header', $data);
+        $this->load->view('commonHeader');
         echo form_open('register');
         ?>
 

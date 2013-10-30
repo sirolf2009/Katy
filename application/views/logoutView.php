@@ -7,14 +7,7 @@
          
      </head>
 	<body>
-            <?php 
-            $data['barItems'] = "1";
-            $data['destinations'] = array(
-                0 => "http://localhost/index.php/logout"
-            );
-            $data['descriptions'] = array(
-                0 => "uitloggen"
-            );$this->load->view('header', $data);
+            <?php $this->load->view('commonHeader');
             echo form_open('login'); ?>
  
             
