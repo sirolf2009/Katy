@@ -7,19 +7,21 @@ class Login extends CI_Controller {
         
         function index() {
                 $this->load->helper(array('form', 'url'));
-		$this->load->library('form_validation');
+                $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
+                $this->form_validation->set_rules('username', 'Username', 'required');
+                $this->form_validation->set_rules('password', 'Password', 'required');
                 if ($this->form_validation->run() == FALSE) {
                     $this->load->view('loginView');
-		} else {
+                } else {
                     $this->Login();
                     $this->load->view("logoutView");
-		}
-	}
+                }
+        }
     
-	public function Login() {
+        public function Login() {
             $username = $this->input->post("username");
             $sessionData = $this->session->userdata("userData");
             if($sessionData["loggedIn"]) {
