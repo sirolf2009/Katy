@@ -50,6 +50,20 @@ class Register extends CI_Controller {
     Public function Register() {
         $this->load->model('Account', "account");
         $this->account->register($this->input->post("username"), sha1($this->input->post("password") . 'extra'), $this->input->post("email"));
+		
+		$this->load->library('email');
+		
+		$this->email->from('VULIN@VULIN.nl');
+		$this->email->to($this->input->post("email"));
+		
+		$this->email->subject('Rmail Test');
+		$this->email->message('Test test test test');
+		
+		if ($this->email->send()) {
+        echo("Mail Sent");
+		}else{
+        echo($this->email->print_debugger());
+		}
     }
 
 }
