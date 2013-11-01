@@ -64,18 +64,20 @@ class Register extends CI_Controller {
 		$value = 
 		
 		$this->email->subject('Registratie Bevestigen');
-		$this->email->message('Klik deze link om uw registratie te bevestige ' . anchor('http://localhost/index.php/login/' . $activation_code, 'Bevestig Registatie')));
+		$this->email->message('Klik deze link om uw registratie te bevestige ' . html_entity_decode('http://localhost/index.php/register/register_confirm/') . $activation_code, 'Bevestig Registatie');
 		
-		if ($this->email->send()) {
-        echo("Mail Sent");
-		echo($activation_code);
-		}else{
-        echo($this->email->print_debugger());
+		if ($this->email->send()) 
+		{
+		}
+		else
+		{
+			echo($this->email->print_debugger());
 		}
     }
 	
-	/*public function register_confirm()
+	public function register_confirm($variable)
 	{
+		echo($variable);
 		$registration_code = $this->uri->segment(3);
 		
 		if($registration_code == ' ')
@@ -84,17 +86,18 @@ class Register extends CI_Controller {
 			exit();
 		}
 		
-		$registration_confirmed = $this->Account->confirm_registration($registration_code);
+		$this->load->model('Account', "account");
+		$registration_confirmed = $this->account->confirm_registration($registration_code);
 		
 		if($registration_confirmed)
 		{
-			echo 'Registratie voltooid';
+			echo ' Registratie voltooid';
 		}
 		else
 		{
 			echo 'Registratie gefaalt';
 		}
-	}*/
+	}
 }
 
 ?>

@@ -66,7 +66,7 @@ class Account extends CI_Model {
         return $this->db->get();
     }
 	
-	/*function confirm_registration($registration_code)
+	function confirm_registration($registration_code)
 	{
 		$query_str = "SELECT user_id from account where activation_code = ?";
 		
@@ -74,7 +74,7 @@ class Account extends CI_Model {
 		
 		if($result->num_rows() == 1)
 		{
-			$query_str = "UPDATE account SET activated = 1 WHERE activation _code = ?";
+			$query_str = "UPDATE account SET activated = 1 WHERE activation_code = ?";
 			
 			$this->db->query($query_str, $registration_code);
 			
@@ -84,6 +84,6 @@ class Account extends CI_Model {
 		{
 			return false;
 		}
-	}*/
+	}
 }
 ?>
