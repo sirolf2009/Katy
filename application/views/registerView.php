@@ -42,7 +42,7 @@
             </div>
             <div style="float:right">
                 <?php
-                require_once(__DIR__ . '/../CAPTCHA/recaptchalib.php');
+                require_once(__DIR__ . '/../libraries/CAPTCHA/recaptchalib.php');
                 $publickey = "6Lco_OgSAAAAAOwV-J4dSISJzAJYVh436CyeRa3M";
                 echo recaptcha_get_html($publickey);
                 ?>

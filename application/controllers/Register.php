@@ -25,7 +25,7 @@ class Register extends CI_Controller {
     }
 
     public function Captcha() {
-        require_once(__DIR__ . '/../CAPTCHA/recaptchalib.php');
+        require_once(__DIR__ . '/../libraries/CAPTCHA/recaptchalib.php');
         $privatekey = "6Lco_OgSAAAAALzUplkjQ1FesnGqGdv1OBkAAI5x";
         $resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
         if (!$resp->is_valid) {
