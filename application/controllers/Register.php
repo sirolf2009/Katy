@@ -51,7 +51,6 @@ class Register extends CI_Controller {
 		$this->load->helper('string');
 		$activation_code = random_string('alnum', 10);
 		
-		echo($activation_code);
 		
         $this->load->model('Account', "account");
         $this->account->register($this->input->post("username"), sha1($this->input->post("password") . 'extra'), $this->input->post("email"), $activation_code);
