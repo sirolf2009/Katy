@@ -77,13 +77,16 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-     console.log('Good to see you, ' + response.name + '.');
-    });
-		
-   
+    //console.log('Welcome!  Fetching your information.... ');
+    //FB.api('/me', function(response) {
+    // console.log('Good to see you, ' + response.name + '.');
+    //});
+	
+	  FB.Event.subscribe('auth.login', function(response) {
+		window.location.href = "http://localhost/index.php/login";
+	});
   }
+  
 </script>
 
 		
@@ -114,7 +117,7 @@
                     <input type="submit" value="Submit" />
                 </div>
 				<div class = "facebookdesign">
-                    <fb:login-button width="400" show-faces="true" autologoutlink="true" >Log in met facebook!</fb:login-button>
+                    <fb:login-button width="400" show-faces="true" autologoutlink="true">Log in met facebook!</fb:login-button>
                 </div>
 				
             </div>
