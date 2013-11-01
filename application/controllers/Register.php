@@ -48,24 +48,53 @@ class Register extends CI_Controller {
     }
 
     Public function Register() {
+		$this->load->helper('string');
+		$activation_code = random_string('alnum', 10);
+		
+		echo($activation_code);
+		
         $this->load->model('Account', "account");
-        $this->account->register($this->input->post("username"), sha1($this->input->post("password") . 'extra'), $this->input->post("email"));
+        $this->account->register($this->input->post("username"), sha1($this->input->post("password") . 'extra'), $this->input->post("email"), $activation_code);
 		
 		$this->load->library('email');
 		
-		$this->email->from('VULIN@VULIN.nl');
+		$this->email->from('hr.e.learing@gmail.com');
 		$this->email->to($this->input->post("email"));
 		
-		$this->email->subject('Rmail Test');
-		$this->email->message('Test test test test');
+		$value = 
+		
+		$this->email->subject('Registratie Bevestigen');
+		$this->email->message('Klik deze link om uw registratie te bevestige ' . anchor('http://localhost/index.php/login/' . $activation_code, 'Bevestig Registatie')));
 		
 		if ($this->email->send()) {
         echo("Mail Sent");
+		echo($activation_code);
 		}else{
         echo($this->email->print_debugger());
 		}
     }
-
+	
+	/*public function register_confirm()
+	{
+		$registration_code = $this->uri->segment(3);
+		
+		if($registration_code == ' ')
+		{
+			echo 'Error geen registratie code in de URL';
+			exit();
+		}
+		
+		$registration_confirmed = $this->Account->confirm_registration($registration_code);
+		
+		if($registration_confirmed)
+		{
+			echo 'Registratie voltooid';
+		}
+		else
+		{
+			echo 'Registratie gefaalt';
+		}
+	}*/
 }
 
 ?>

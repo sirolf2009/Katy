@@ -38,14 +38,15 @@ class Account extends CI_Model {
         }
     }
     
-    function register($username, $password, $email) {
+    function register($username, $password, $email, $activation_code) {
         $password = sha1($password."extra");
             $data = array(
                 'Username'=>$username,
                 'Password'=>$password,
                 'Email'=>$email,
                 "user_id"=>$this->getLatestUserID()+1,
-                "Rights"=>"User"
+                "Rights"=>"User",
+				"Activation_code"=>$activation_code
             );
         $this->db->insert('account', $data);
     }
@@ -64,5 +65,25 @@ class Account extends CI_Model {
         $this->db->limit(1);
         return $this->db->get();
     }
+	
+	/*function confirm_registration($registration_code)
+	{
+		$query_str = "SELECT user_id from account where activation_code = ?";
+		
+		$result = $this->db->query($query_str, $registration_code);
+		
+		if($result->num_rows() == 1)
+		{
+			$query_str = "UPDATE account SET activated = 1 WHERE activation _code = ?";
+			
+			$this->db->query($query_str, $registration_code);
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}*/
 }
 ?>
