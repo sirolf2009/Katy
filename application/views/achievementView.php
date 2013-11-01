@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>achievments</title>
+        <title>achievements</title>
             <style type="text/css">
                 .topBar {
                     background-color: #83c8f9;
@@ -33,11 +33,19 @@
     </head>
     <body>
 			
-        <div class ="topBar">TODO write content</div>
+        <?php $this->load->view('commonHeader'); ?>
         <div>
             <div class ="greatdiv">
-				
-				<div class ="smalldiv"> hello </div>
+				<?php 
+                                
+				$this->load->controller('achievement');		
+				for($i = 0; $i < $achievement_Amount; $i++) {
+			 		
+                                        echo $data["name"];
+				}
+								
+				?>
+				<div class ="smalldiv"> dad  </div>
 				<div class ="smalldiv"> hello </div>
 				<div class ="smalldiv"> hello </div>
 				<div class ="smalldiv"> hello </div> </br>
