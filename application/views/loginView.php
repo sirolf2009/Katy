@@ -3,28 +3,8 @@
      <head>
         <title>redelijk</title>
         <link rel="stylesheet"  type="text/css" href="http://localhost/rsc/CSS/CSS_for_e-learning.css" />
-
 		<script>
-  // Additional JS functions here
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '420790334688572', // App ID
-      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-    // Additional init code here
-  };
-  // Load the SDK asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-
+		
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '420790334688572', // App ID
@@ -77,20 +57,12 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
-    //console.log('Welcome!  Fetching your information.... ');
-    //FB.api('/me', function(response) {
-    // console.log('Good to see you, ' + response.name + '.');
-    //});
-	
-	  FB.Event.subscribe('auth.login', function(response) {
-		window.location.href = "http://localhost/index.php/login";
-	});
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+    console.log('Good to see you, ' + response.name + '.');
+    });
   }
-  
 </script>
-
-		
-		
 		
      </head>
 	<body>
@@ -115,16 +87,21 @@
 		  </div>
                 <div class="daanmelden">
                     <input type="submit" value="Submit" />
-                </div>
+            </form>
+			
+			
+			<?php echo form_open('login/LoginFacebook'); ?>
+			</div>
 				<div class = "facebookdesign">
-                    <fb:login-button width="400" show-faces="true" autologoutlink="true">Log in met facebook!</fb:login-button>
+                   <fb:login-button width="200" name="fbuser" scope="email, user_birthday" show-faces="true" autologoutlink="true" >Log in met Facebook!</fb:login-button>
                 </div>
-				
+			</form>
+
+
             </div>
             <div style="position: absolute; left: 680px; top: 83px;" class ="data">
                 <img src="http://localhost/rsc/images/data_peeps.jpg" width="680" height="500">
             </div>
-            </form>
-            <?php $this->load->view('footer'); ?>
+			<?php $this->load->view('footer'); ?>
         </body>
 </html>

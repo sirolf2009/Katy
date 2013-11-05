@@ -50,6 +50,14 @@ class Account extends CI_Model {
             );
         $this->db->insert('account', $data);
     }
+	
+		function fbregister($email, $birthday ) {
+            $data = array(
+                'email'=>$email,
+                'birthday'=>$birthday,
+            );
+        $this->db->insert('facebook', $data);
+    }
     
     function getLatestUserID() {
         $this->db->select_max('user_id');
@@ -85,5 +93,7 @@ class Account extends CI_Model {
 			return false;
 		}
 	}
+	
+
 }
 ?>
