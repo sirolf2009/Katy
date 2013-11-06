@@ -90,7 +90,9 @@
             </form>
 			
 			
-			<?php echo form_open('login/LoginFacebook'); ?>
+			<?php echo form_open('login/LoginFacebook'); 
+			
+			?>
 			</div>
 				<div class = "facebookdesign">
                    <fb:login-button width="200" name="fbuser" scope="email, user_birthday" show-faces="true" autologoutlink="true" >Log in met Facebook!</fb:login-button>
