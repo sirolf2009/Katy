@@ -35,16 +35,17 @@ class Login extends CI_Controller {
         }
 
 		public function LoginFacebook() {
-            $username = $this->input->post("fbuser");
+            $email = $this->input->post("fbuser");
+			$birthday = $this->input->post("fbuser");
             $sessionData = $this->session->userdata("userData");
             if($sessionData["loggedIn"]) {
                 show_error("You are already logged in.");
             }
-			$this->load->model('Account', 'fbregister');
-            $this->account->login($username, $this->input->post("password"));
+			$this->load->model('Account', 'account');
+			$this->account->fbregister($email, $birthday);
             
             $this->session->set_userdata("userData", array("loggedIn" => true, 
-															"fbuser" => $username));
+															"fbuser" => $fbuser));
         }
 
 }
