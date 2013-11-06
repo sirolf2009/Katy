@@ -199,7 +199,7 @@ abstract class BaseFacebook
    *
    * @var string
    */
-  protected $accessToken = null;
+  protected $accessToken = "CAACEdEose0cBAB9M0zBHHreaMhWZBIFAF1pvBWZBxRvZBp9mkkCTXHnB08TZBMGr4Sgtr99wlK5ndZCuLeZCyiSJHAkCKB4GBdcZCa0loHa9FZAv0JxuUoZA9EQcHwcTyFmbD4ZBHnpZBohC86Eka9tGJ13FjIIy43Y2Sq3MFIQ6hN7NF0mICTipoohAKJkUzwID6oZD";
 
   /**
    * Indicates if the CURL based @ syntax for file uploads is enabled.

@@ -1,13 +1,14 @@
 <?php
+
 class Account extends CI_Model {
 
     function __construct() {
         parent::__construct();
         $this->load->database();
     }
-    
+
     function login($username, $password) {
-        $password = sha1($password."extra");
+        $password = sha1($password . "extra");
         $this->db->select('username, password');
         $this->db->from('account');
         $this->db->where('username', $username);
@@ -16,13 +17,13 @@ class Account extends CI_Model {
 
         $query = $this->db->get();
 
-        if($query->num_rows() == 1) {
+        if ($query->num_rows() == 1) {
             return $query->result();
-        } else { 
+        } else {
             return false;
         }
     }
-    
+
     function doesUserExist($username) {
         $this->db->select('username');
         $this->db->from('account');
@@ -31,41 +32,44 @@ class Account extends CI_Model {
 
         $query = $this->db->get();
 
-        if($query->num_rows() >= 1) {
+        if ($query->num_rows() >= 1) {
             return true;
-        } else { 
+        } else {
             return false;
         }
     }
-    
+
     function register($username, $password, $email, $activation_code) {
-        $password = sha1($password."extra");
-            $data = array(
-                'Username'=>$username,
-                'Password'=>$password,
-                'Email'=>$email,
-                "user_id"=>$this->getLatestUserID()+1,
-                "Rights"=>"User",
-				"Activation_code"=>$activation_code
-            );
+        $password = sha1($password . "extra");
+        $data = array(
+            'Username' => $username,
+            'Password' => $password,
+            'Email' => $email,
+            "user_id" => $this->getLatestUserID() + 1,
+            "Rights" => "User",
+            "Activation_code" => $activation_code
+        );
         $this->db->insert('account', $data);
     }
-	
-		function fbregister($email, $birthday ) {
-            $data = array(
-                'email'=>$email,
-                'birthday'=>$birthday,
-            );
+
+    function fbregister($username, $email, $birthday) {
+        //TODO use email to check for user existence
+        //TODO doesUserExist
+        $data = array(
+            'username' => $username,
+            'email' => $email,
+            'birthday' => $birthday
+        );
         $this->db->insert('facebook', $data);
     }
-    
+
     function getLatestUserID() {
         $this->db->select_max('user_id');
         $result = $this->db->get('account');
         $row = $result->row_array();
         return $row["user_id"];
     }
-    
+
     function getUserFromID($ID) {
         $this->db->select('*');
         $this->db->from('account');
@@ -73,27 +77,23 @@ class Account extends CI_Model {
         $this->db->limit(1);
         return $this->db->get();
     }
-	
-	function confirm_registration($registration_code)
-	{
-		$query_str = "SELECT user_id from account where activation_code = ?";
-		
-		$result = $this->db->query($query_str, $registration_code);
-		
-		if($result->num_rows() == 1)
-		{
-			$query_str = "UPDATE account SET activated = 1 WHERE activation_code = ?";
-			
-			$this->db->query($query_str, $registration_code);
-			
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
+
+    function confirm_registration($registration_code) {
+        $query_str = "SELECT user_id from account where activation_code = ?";
+
+        $result = $this->db->query($query_str, $registration_code);
+
+        if ($result->num_rows() == 1) {
+            $query_str = "UPDATE account SET activated = 1 WHERE activation_code = ?";
+
+            $this->db->query($query_str, $registration_code);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
+
 ?>
