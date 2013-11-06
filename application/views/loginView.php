@@ -15,7 +15,6 @@
                 });
                 //TODO logging out
                 FB.Event.subscribe('auth.login', function(response) {
-                    alert("test");
                     FB.api('/me', function(response) {
                             var username = response.username;
                             var birthday = response.birthday.replace("/","-").replace("/","-");
