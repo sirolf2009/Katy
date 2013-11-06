@@ -16,10 +16,8 @@ class Achievement extends CI_Controller {
                 $achievementName = 0;        
                 $this->load->model('Achievements', "achievements");
 		$query = $this->achievements->getAllAchievementsFromUser($userID);
-		$data["achievement_Amount"] = count($query);
 		for($i = 0; $i < count($query); $i++) {
-			
-			$query2 = $this->achievements->getAchievementProperties($achievementName);
+                        $query2 = $this->achievements->getAchievementProperties($achievementName);
 			foreach ($query2->result_array() as $row) {
                                 $achievementName++ ;
                                 $data["Name$achievementName"]= $row['AchievementName']; 
@@ -28,6 +26,7 @@ class Achievement extends CI_Controller {
 				
                                 
                         }
+                        $data ["achievement_Amount"] = $achievementName;
 		}
                 
 		$this->load->view('achievementView',$data);
