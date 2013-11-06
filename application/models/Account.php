@@ -52,15 +52,27 @@ class Account extends CI_Model {
         $this->db->insert('account', $data);
     }
 
-    function fbregister($username, $email, $birthday) {
-        //TODO use email to check for user existence
-        //TODO doesUserExist
+    function fbregister($username, $birthday) {
         $data = array(
             'username' => $username,
-            'email' => $email,
             'birthday' => $birthday
         );
         $this->db->insert('facebook', $data);
+    }
+    
+    function doesFacebookUserExist($username) {
+        $this->db->select('username');
+        $this->db->from('facebook');
+        $this->db->where('username', $username);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function getLatestUserID() {

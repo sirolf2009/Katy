@@ -14,15 +14,18 @@
                     xfbml: true  // parse XFBML
                 });
                 //TODO logging out
-                FB.Event.subscribe('auth.authResponseChange', function(response) {
-                    if (response.status === 'connected') {
-                        FB.api('/me', function(response) {
+                FB.Event.subscribe('auth.login', function(response) {
+                    alert("test");
+                    FB.api('/me', function(response) {
                             var username = response.username;
                             var birthday = response.birthday.replace("/","-").replace("/","-");
-                            alert(response.email);
-                            var email = response.email;
-                            window.location = "login/LoginFacebook/"+username+"/"+birthday+"/"+email;
+                            window.location = "login/LoginFacebook/"+username+"/"+birthday;
                         });
+                });
+                
+                FB.Event.subscribe('auth.authResponseChange', function(response) {
+                    if (response.status === 'connected') {
+                        
                     } else if (response.status === 'not_authorized') {
                         FB.login();
                     } else {
