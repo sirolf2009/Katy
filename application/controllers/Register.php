@@ -76,7 +76,6 @@ class Register extends CI_Controller {
 	
 	public function register_confirm($variable)
 	{
-		echo($variable);
 		$registration_code = $this->uri->segment(3);
 		
 		if($registration_code == ' ')
@@ -90,7 +89,7 @@ class Register extends CI_Controller {
 		
 		if($registration_confirmed)
 		{
-			echo ' Registratie voltooid';
+			$this->load->view("register_ValidationView");
 		}
 		else
 		{
